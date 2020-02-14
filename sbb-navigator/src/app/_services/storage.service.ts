@@ -1,4 +1,6 @@
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
+import { StoredLocation } from '../_models/location.model';
+import { LocationTarget } from '../_models/locationTarget.model';
 
 export class StorageService{
 
@@ -28,5 +30,15 @@ export class StorageService{
                 .catch(e => console.log(e));
         })
         .catch(e => console.log(e));
+    }
+
+    public GetLocations():StoredLocation[]{
+        // Not implemented
+        return null;
+    }
+
+    public GetLocationTargets():LocationTarget[]{
+        // Not implemented
+        return null;
     }
 }
