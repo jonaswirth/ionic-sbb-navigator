@@ -1,0 +1,7 @@
+{
+  "name": "sbb-navigator",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
