@@ -1,8 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-item>
+      <ion-button>
+        <ion-icon name="locate"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+      <ion-label>Location</ion-label>
+      <ion-select value="{{currentLocation.apiIdentifier}}" placeholder="Select One">
+        <ion-select-option *ngFor="let location of storedLocations" value="{{location.apiIdentifier}}">{{location.displayName}}</ion-select-option>
+      </ion-select>
+    </ion-item>
   </ion-toolbar>
 </ion-header>
 
@@ -14,7 +23,5 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
 </ion-content>
