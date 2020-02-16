@@ -1,7 +1,8 @@
 {
   "name": "sbb-navigator",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
