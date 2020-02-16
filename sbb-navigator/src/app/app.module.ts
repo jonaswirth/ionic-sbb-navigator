@@ -13,6 +13,8 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 import { SQLite } from '@ionic-native/sqlite/ngx';
  
 import { HttpClientModule } from '@angular/common/http';
+import { StorageService } from './_services/storage.service';
+import { MockStorageService } from './_services/mock.storage.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: StorageService, useClass: MockStorageService},
     SQLite,
     SQLitePorter
   ],

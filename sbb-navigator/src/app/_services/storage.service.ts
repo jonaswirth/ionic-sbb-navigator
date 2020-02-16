@@ -36,7 +36,7 @@ export class StorageService {
     .subscribe(sql => {
       this.sqlitePorter.importSqlToDb(this.database, sql)
         .then(_ => {
-          //this.loadLocations();
+          this.loadStoredLocations();
           //this.loadTargets();
           this.dbReady.next(true);
         })

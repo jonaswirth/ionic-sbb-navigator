@@ -9,7 +9,7 @@
       </ion-button>
       <ion-label>Location</ion-label>
       <ion-select value="{{currentLocation.apiIdentifier}}" placeholder="Select One">
-        <ion-select-option *ngFor="let location of storedLocations" value="{{location.apiIdentifier}}">{{location.displayName}}</ion-select-option>
+        <ion-select-option *ngFor="let location of storedLocations | async" value="{{location.apiIdentifier}}">{{location.displayName}}</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-toolbar>

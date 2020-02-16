@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { StoredLocation } from '../_models/storedLocation.model';
+import { StorageService } from '../_services/storage.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -9,47 +11,31 @@ import { StoredLocation } from '../_models/storedLocation.model';
 export class HomePage {
 
   currentLocation:StoredLocation;
-  storedLocations:StoredLocation[];
+  storedLocations:Observable<StoredLocation[]>;
 
   connections:any[];
 
 
-  constructor(){
-    this.currentLocation = {
-      locationId: 1,
-      useAsStartLocation:true,
-      displayName:"Home",
-      stationName:"Zürich Oerlikon",
-      apiIdentifier:"home",
-      longitude:1,
-      latitude:1
-    }
+  constructor(private db: StorageService){ }
 
-    this.storedLocations = [
-      {
-        locationId: 1,
-        useAsStartLocation:true,
-        displayName:"Home",
-        apiIdentifier:"home",
-        stationName:"Zürich Oerlikon",
-        longitude:1,
-        latitude:1
-      },
-      {
-        locationId: 1,
-        useAsStartLocation:true,
-        displayName:"Work",
-        apiIdentifier:"work",
-        stationName:"Zürich HB",
-        longitude:1,
-        latitude:1
+  ngOnInit(){
+    console.log("init");
+    this.db.getDatabaseState().subscribe(rdy => {
+      console.log("ready");
+      if(rdy){
+        this.storedLocations = this.db.getStoredLocations();
+        this.currentLocation = {
+            locationId:1,
+            useAsStartLocation:true,
+            displayName:"Home",
+            stationName:"Zürich HB",
+            apiIdentifier:"zrh",
+            longitude:8.538373,
+            latitude:47.412320
+        };
+        console.log(this.storedLocations);
+        console.log(this.currentLocation);
       }
-    ]
-
-    this.connections
-
-    console.log("initialized");
-    console.log(this.storedLocations);
+    })
   }
-
 }
