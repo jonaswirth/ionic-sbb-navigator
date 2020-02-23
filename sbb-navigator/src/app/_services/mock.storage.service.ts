@@ -27,7 +27,17 @@ export class MockStorageService{
         }
     ]);
     
-    locationTargets = new BehaviorSubject([]);
+    locationTargets = new BehaviorSubject([
+      {
+        startId:1,
+        targetId:2,
+        orderIndex:1
+      },{
+        startId:2,
+        targetId:1,
+        orderIndex:1
+      }
+    ]);
 
     getDatabaseState() {
         return this.dbReady.asObservable();

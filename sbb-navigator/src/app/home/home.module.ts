@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { StoredLocation } from '../_models/storedLocation.model';
+import { ConnectionComponent} from '../_components/connection.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,10 @@ import { StoredLocation } from '../_models/storedLocation.model';
       }
     ])
   ],
-  declarations: [HomePage]
+  declarations: [
+    HomePage, 
+    ConnectionComponent
+  ]
 })
 export class HomePageModule {
   
